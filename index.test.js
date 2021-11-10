@@ -1,4 +1,4 @@
-const {buildCharArray} = require('./index.js')
+const {buildCharArray, buildQuadrant} = require('./index.js')
 
 
 describe('Diamond-Kata', () => {
@@ -32,4 +32,17 @@ describe('Diamond-Kata', () => {
         const letter = '108'
         expect(() => {buildCharArray(letter)}).toThrow("Input is not a letter of the alphabet!")
     })
+
+//b--------------------------------------------------
+    it('should return an array of arrays for each letter in the input array', () => {
+        const letterArray = buildCharArray('C')
+        result = buildQuadrant(letterArray)
+        expect(result).toStrictEqual([['-', '-', 'A'], ['-', 'B', '-'], ['C', '-', '-']])
+    })
+    it('should return an array of arrays for each letter in the input array', () => {
+        const letterArray = buildCharArray('D')
+        result = buildQuadrant(letterArray)
+        expect(result).toStrictEqual([['-', '-', '-', 'A'], ['-', '-', 'B', '-'], ['-', 'C', '-', '-'], ['D', '-', '-', '-']])
+    })
+    
 })

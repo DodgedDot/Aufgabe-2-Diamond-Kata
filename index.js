@@ -9,6 +9,17 @@ const buildCharArray = (charName) =>{
     return charArray
 }
 
+const buildQuadrant = (charArrayInput) => {
+    let quadrantArray = [charArrayInput.length]
+    for(i = 0; i < charArrayInput.length; i++){
+        quadrantArray[i] = []
+        for(j = charArrayInput.length - 1; j >= 0; j--){
+            quadrantArray[i][j] = (i === charArrayInput.length - 1 - j) ? charArrayInput[i] : '-'
+        }
+    }
+    return quadrantArray
+}
+
 module.exports = {
-    buildCharArray
+    buildCharArray, buildQuadrant
 }
