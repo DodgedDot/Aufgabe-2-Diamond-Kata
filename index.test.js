@@ -1,4 +1,4 @@
-const {buildCharArray, buildQuadrant} = require('./index.js')
+const {buildCharArray, buildQuadrant, buildYMirroredImage} = require('./index.js')
 
 
 describe('Diamond-Kata', () => {
@@ -43,6 +43,20 @@ describe('Diamond-Kata', () => {
         const letterArray = buildCharArray('D')
         result = buildQuadrant(letterArray)
         expect(result).toStrictEqual([['-', '-', '-', 'A'], ['-', '-', 'B', '-'], ['-', 'C', '-', '-'], ['D', '-', '-', '-']])
+    })
+    
+//c--------------------------------------------------
+    it('should return an array of three arrays containing the input arrays extended by their mirrored values', () => {
+        const letterArray = buildCharArray('C')
+        quadrantArray = buildQuadrant(letterArray)
+        yMirroredArray = buildYMirroredImage(quadrantArray)
+        expect(yMirroredArray).toStrictEqual([['-', '-', 'A', '-', '-'], ['-', 'B', '-', 'B', '-'], ['C', '-', '-', '-', 'C']])
+    })
+    it('should return an array of four arrays containing the input arrays extended by their mirrored values', () => {
+        const letterArray = buildCharArray('D')
+        quadrantArray = buildQuadrant(letterArray)
+        yMirroredArray = buildYMirroredImage(quadrantArray)
+        expect(yMirroredArray).toStrictEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D']])
     })
     
 })

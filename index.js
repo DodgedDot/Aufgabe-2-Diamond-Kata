@@ -20,6 +20,15 @@ const buildQuadrant = (charArrayInput) => {
     return quadrantArray
 }
 
+const buildYMirroredImage = (quadrantArrayInput) => {
+    for(i = 0; i < quadrantArrayInput.length; i++){
+        for(j = quadrantArrayInput.length - 2; j >= 0; j--){
+            quadrantArrayInput[i].push(quadrantArrayInput[i][j])
+        }
+    }
+    return quadrantArrayInput
+}
+
 module.exports = {
-    buildCharArray, buildQuadrant
+    buildCharArray, buildQuadrant, buildYMirroredImage
 }
