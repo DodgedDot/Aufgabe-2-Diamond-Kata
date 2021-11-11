@@ -34,12 +34,12 @@ describe('Diamond-Kata', () => {
     })
 
 //b--------------------------------------------------
-    it('should return an array of arrays for each letter in the input array', () => {
+    it('should return an array of three arrays, one for each letter in the input array (A-C)', () => {
         const letterArray = buildCharArray('C')
         result = buildQuadrant(letterArray)
         expect(result).toStrictEqual([['-', '-', 'A'], ['-', 'B', '-'], ['C', '-', '-']])
     })
-    it('should return an array of arrays for each letter in the input array', () => {
+    it('should return an array of four arrays, one for each letter in the input array (A-D)', () => {
         const letterArray = buildCharArray('D')
         result = buildQuadrant(letterArray)
         expect(result).toStrictEqual([['-', '-', '-', 'A'], ['-', '-', 'B', '-'], ['-', 'C', '-', '-'], ['D', '-', '-', '-']])
