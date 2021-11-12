@@ -60,7 +60,7 @@ describe('Diamond-Kata', () => {
     })
 
 //d--------------------------------------------------
-    fit('should return an array of five arrays containing the input arrays and the first two in mirrored sequence', () => {
+    it('should return an array of five arrays containing the input arrays and the first two in mirrored sequence', () => {
         const letterArray = buildCharArray('C')
         quadrantArray = buildQuadrant(letterArray)
         yMirroredArray = buildYMirroredImage(quadrantArray)

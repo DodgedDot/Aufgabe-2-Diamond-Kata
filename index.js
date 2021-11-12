@@ -32,13 +32,9 @@ const buildYMirroredImage = (quadrantArrayInput) => {
 const buildXMirroredImage = (yMirroredArrayInput) => {
     yMirroredArrayInputReversed = yMirroredArrayInput.reverse()
     let midArray = yMirroredArrayInputReversed[0]
-    let unshiftedArray = []
-    yMirroredArrayInputReversed.forEach((element) => { 
-        if(element !== midArray){
-            unshiftedArray.push(element)
-        }
-    })
-    unshiftedArray.forEach((element) => {    
+    let arrayToUnshift = []
+    yMirroredArrayInputReversed.forEach((element) => { (element !== midArray) ? arrayToUnshift.push(element) : null})
+    arrayToUnshift.forEach((element) => {
         yMirroredArrayInputReversed.unshift(element)
     })
     return yMirroredArrayInputReversed
