@@ -1,4 +1,4 @@
-const {buildCharArray, buildQuadrant, buildYMirroredImage} = require('./index.js')
+const {buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage} = require('./index.js')
 
 
 describe('Diamond-Kata', () => {
@@ -57,6 +57,15 @@ describe('Diamond-Kata', () => {
         quadrantArray = buildQuadrant(letterArray)
         yMirroredArray = buildYMirroredImage(quadrantArray)
         expect(yMirroredArray).toStrictEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D']])
+    })
+
+//d--------------------------------------------------
+    fit('should return an array of five arrays containing the input arrays and the first two in mirrored sequence', () => {
+        const letterArray = buildCharArray('C')
+        quadrantArray = buildQuadrant(letterArray)
+        yMirroredArray = buildYMirroredImage(quadrantArray)
+        xMirroredArray = buildXMirroredImage(yMirroredArray)
+        expect(xMirroredArray).toStrictEqual([['-', '-', 'A', '-', '-'], ['-', 'B', '-', 'B', '-'], ['C', '-', '-', '-', 'C'], ['-', 'B', '-', 'B', '-'], ['-', '-', 'A', '-', '-']])
     })
     
 })

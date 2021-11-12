@@ -29,6 +29,21 @@ const buildYMirroredImage = (quadrantArrayInput) => {
     return quadrantArrayInput
 }
 
+const buildXMirroredImage = (yMirroredArrayInput) => {
+    yMirroredArrayInputReversed = yMirroredArrayInput.reverse()
+    let midArray = yMirroredArrayInputReversed[0]
+    let unshiftedArray = []
+    yMirroredArrayInputReversed.forEach((element) => { 
+        if(element !== midArray){
+            unshiftedArray.push(element)
+        }
+    })
+    unshiftedArray.forEach((element) => {    
+        yMirroredArrayInputReversed.unshift(element)
+    })
+    return yMirroredArrayInputReversed
+}
+
 module.exports = {
-    buildCharArray, buildQuadrant, buildYMirroredImage
+    buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage
 }
