@@ -67,5 +67,12 @@ describe('Diamond-Kata', () => {
         xMirroredArray = buildXMirroredImage(yMirroredArray)
         expect(xMirroredArray).toStrictEqual([['-', '-', 'A', '-', '-'], ['-', 'B', '-', 'B', '-'], ['C', '-', '-', '-', 'C'], ['-', 'B', '-', 'B', '-'], ['-', '-', 'A', '-', '-']])
     })
+    it('should return an array of seven arrays containing the input arrays and the first three in mirrored sequence', () => {
+        const letterArray = buildCharArray('D')
+        quadrantArray = buildQuadrant(letterArray)
+        yMirroredArray = buildYMirroredImage(quadrantArray)
+        xMirroredArray = buildXMirroredImage(yMirroredArray)
+        expect(xMirroredArray).toEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D'], ['-', 'C', '-', '-', '-', 'C', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', '-', '-', 'A', '-', '-', '-']])
+    })
     
 })
