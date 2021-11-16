@@ -1,4 +1,4 @@
-const {buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage, diamond} = require('./index.js')
+const {buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage, diamond} = require('./diamond.js')
 
 
 describe('Diamond-Kata', () => {
