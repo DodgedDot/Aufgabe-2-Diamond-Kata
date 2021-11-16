@@ -1,4 +1,4 @@
-const {buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage} = require('./index.js')
+const {buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage, diamond} = require('./index.js')
 
 
 describe('Diamond-Kata', () => {
@@ -72,7 +72,34 @@ describe('Diamond-Kata', () => {
         quadrantArray = buildQuadrant(letterArray)
         yMirroredArray = buildYMirroredImage(quadrantArray)
         xMirroredArray = buildXMirroredImage(yMirroredArray)
-        expect(xMirroredArray).toEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D'], ['-', 'C', '-', '-', '-', 'C', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', '-', '-', 'A', '-', '-', '-']])
+        expect(xMirroredArray).toStrictEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D'], ['-', 'C', '-', '-', '-', 'C', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', '-', '-', 'A', '-', '-', '-']])
     })
     
+//e--------------------------------------------------
+    // it('should return a concatenated String from the input-array', () => {
+    //     const letterArray = buildCharArray('D')
+    //     quadrantArray = buildQuadrant(letterArray)
+    //     yMirroredArray = buildYMirroredImage(quadrantArray)
+    //     xMirroredArray = buildXMirroredImage(yMirroredArray)
+    //     arrayString = diamond(xMirroredArray)
+    //     expect(arrayString).toEqual(
+    //     '---A---' + '\n' +
+    //     '--B-B--' + '\n' +
+    //     '-C---C-' + '\n' +
+    //     'D-----D' + '\n' +
+    //     '-C---C-' + '\n' +
+    //     '--B-B--' + '\n' +
+    //     '---A---')
+    // })
+
+    it('should test the console.log output by mock-function', () => {
+        const letterArray = buildCharArray('D')
+        quadrantArray = buildQuadrant(letterArray)
+        yMirroredArray = buildYMirroredImage(quadrantArray)
+        xMirroredArray = buildXMirroredImage(yMirroredArray)
+
+        const mockTest = jest.fn(element => element = xMirroredArray)
+        diamond(mockTest(0))
+        expect(mockTest).toBeCalled()
+    })
 })

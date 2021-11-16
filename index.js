@@ -40,6 +40,13 @@ const buildXMirroredImage = (yMirroredArrayInput) => {
     return yMirroredArrayInputReversed
 }
 
+const diamond = (ausgabeArray) => {
+    let joinedLineArray = ausgabeArray.map((element) => element.join(""))
+    let diamondString = joinedLineArray.join("\n")
+    console.log(diamondString)
+
+}
+
 module.exports = {
-    buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage
+    buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage, diamond
 }
