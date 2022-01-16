@@ -1,7 +1,7 @@
 const {buildCharArray, buildQuadrant, buildYMirroredImage, buildXMirroredImage, diamond} = require('./diamond.js')
 
 
-describe('Diamond-Kata', () => {
+describe('buildCharArray', () => {
 
     var result = 0
 
@@ -32,8 +32,9 @@ describe('Diamond-Kata', () => {
         const letter = '108'
         expect(() => {buildCharArray(letter)}).toThrow("Input is not a letter of the alphabet!")
     })
-
+}),
 //b--------------------------------------------------
+describe('buildQuadrant', () => {
     it('should return an array of three arrays, one for each letter in the input array (A-C)', () => {
         const letterArray = buildCharArray('C')
         result = buildQuadrant(letterArray)
@@ -44,8 +45,14 @@ describe('Diamond-Kata', () => {
         result = buildQuadrant(letterArray)
         expect(result).toStrictEqual([['-', '-', '-', 'A'], ['-', '-', 'B', '-'], ['-', 'C', '-', '-'], ['D', '-', '-', '-']])
     })
-    
+    it('should return an empty array for the input of an empty array', () => {
+        const letterArray = []
+        result = buildQuadrant(letterArray)
+        expect(result).toStrictEqual([])
+    })
+}),
 //c--------------------------------------------------
+describe('buildYMirroredImage', () => {
     it('should return an array of three arrays containing the input arrays extended by their mirrored values', () => {
         const letterArray = buildCharArray('C')
         quadrantArray = buildQuadrant(letterArray)
@@ -58,8 +65,9 @@ describe('Diamond-Kata', () => {
         yMirroredArray = buildYMirroredImage(quadrantArray)
         expect(yMirroredArray).toStrictEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D']])
     })
-
+}),
 //d--------------------------------------------------
+describe('buildXMirroredImage', () => {
     it('should return an array of five arrays containing the input arrays and the first two in mirrored sequence', () => {
         const letterArray = buildCharArray('C')
         quadrantArray = buildQuadrant(letterArray)
@@ -74,8 +82,9 @@ describe('Diamond-Kata', () => {
         xMirroredArray = buildXMirroredImage(yMirroredArray)
         expect(xMirroredArray).toStrictEqual([['-', '-', '-', 'A', '-', '-', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', 'C', '-', '-', '-', 'C', '-'], ['D', '-', '-', '-', '-', '-', 'D'], ['-', 'C', '-', '-', '-', 'C', '-'], ['-', '-', 'B', '-', 'B', '-', '-'], ['-', '-', '-', 'A', '-', '-', '-']])
     })
-    
+}),
 //e--------------------------------------------------
+describe('testing with mock', () => {
     // it('should return a concatenated String from the input-array', () => {
     //     const letterArray = buildCharArray('D')
     //     quadrantArray = buildQuadrant(letterArray)

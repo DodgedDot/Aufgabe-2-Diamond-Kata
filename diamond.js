@@ -1,16 +1,19 @@
 const buildCharArray = (charName) =>{
-    const alphabetArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    let indexAA, charArray = []
+    const alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let charNameUC = charName.toUpperCase()
-    if(alphabetArray.search(charNameUC) >= 0){indexAA = alphabetArray.search(charNameUC)}else{throw "Input is not a letter of the alphabet!"}
+    let indexAA = alphabetString.search(charNameUC)
+    if(indexAA < 0){throw "Input is not a letter of the alphabet!"}
+    let charArray = new Array(indexAA + 1)
+    const alphabetArray = alphabetString.split('');
     for(let i = 0; i <= indexAA; i++){
         charArray[i] = alphabetArray[i]
     }
+    // charArray.forEach((element, index) => {charArray[index] = alphabetArray[index]})
     return charArray
 }
 
 const buildQuadrant = (charArrayInput) => {
-    let quadrantArray = [charArrayInput.length]
+    let quadrantArray = new Array(charArrayInput.length)
     for(i = 0; i < charArrayInput.length; i++){
         quadrantArray[i] = []
         for(j = charArrayInput.length - 1; j >= 0; j--){
@@ -30,14 +33,10 @@ const buildYMirroredImage = (quadrantArrayInput) => {
 }
 
 const buildXMirroredImage = (yMirroredArrayInput) => {
-    yMirroredArrayInputReversed = yMirroredArrayInput.reverse()
-    let midArray = yMirroredArrayInputReversed[0]
-    let arrayToUnshift = []
-    yMirroredArrayInputReversed.forEach((element) => { (element !== midArray) ? arrayToUnshift.push(element) : null})
-    arrayToUnshift.forEach((element) => {
-        yMirroredArrayInputReversed.unshift(element)
-    })
-    return yMirroredArrayInputReversed
+    arrayToConcat = yMirroredArrayInput.map(x => x)
+    arrayToConcat.reverse().shift()
+    yMirroredArrayInput = yMirroredArrayInput.concat(arrayToConcat)
+    return yMirroredArrayInput
 }
 
 const diamond = (ausgabeArray) => {
